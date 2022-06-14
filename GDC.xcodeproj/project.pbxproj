@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		04045ADE28588285000C48FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045ADD28588285000C48FC /* AppDelegate.swift */; };
-		04045AE028588285000C48FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045ADF28588285000C48FC /* ViewController.swift */; };
+		04045AE028588285000C48FC /* FetchImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045ADF28588285000C48FC /* FetchImageVC.swift */; };
 		04045AE328588285000C48FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04045AE128588285000C48FC /* Main.storyboard */; };
 		04045AE528588288000C48FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04045AE428588288000C48FC /* Assets.xcassets */; };
 		04045AE828588288000C48FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04045AE628588288000C48FC /* LaunchScreen.storyboard */; };
 		04045AF328588288000C48FC /* GDCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045AF228588288000C48FC /* GDCTests.swift */; };
 		04045AFE28588288000C48FC /* GDCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045AFD28588288000C48FC /* GDCUITests.swift */; };
+		04045B122858865B000C48FC /* FetchImageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B112858865B000C48FC /* FetchImageVM.swift */; };
+		04045B1428588675000C48FC /* FetchImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B1328588675000C48FC /* FetchImageModel.swift */; };
+		04045B17285888C0000C48FC /* FetchImageRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B16285888C0000C48FC /* FetchImageRequestData.swift */; };
+		04045B1B28588B23000C48FC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B1928588B23000C48FC /* Log.swift */; };
+		04045B1C28588B23000C48FC /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B1A28588B23000C48FC /* DispatchQueue+Extension.swift */; };
+		04045B1E28588B4A000C48FC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B1D28588B4A000C48FC /* Configuration.swift */; };
+		04045B2028588CA0000C48FC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B1F28588CA0000C48FC /* Constant.swift */; };
+		04045B2228589398000C48FC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B2128589398000C48FC /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,7 @@
 /* Begin PBXFileReference section */
 		04045ADA28588285000C48FC /* GDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04045ADD28588285000C48FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04045ADF28588285000C48FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04045ADF28588285000C48FC /* FetchImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageVC.swift; sourceTree = "<group>"; };
 		04045AE228588285000C48FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04045AE428588288000C48FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04045AE728588288000C48FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +55,14 @@
 		04045AF928588288000C48FC /* GDCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GDCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04045AFD28588288000C48FC /* GDCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDCUITests.swift; sourceTree = "<group>"; };
 		04045AFF28588288000C48FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04045B112858865B000C48FC /* FetchImageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageVM.swift; sourceTree = "<group>"; };
+		04045B1328588675000C48FC /* FetchImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageModel.swift; sourceTree = "<group>"; };
+		04045B16285888C0000C48FC /* FetchImageRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageRequestData.swift; sourceTree = "<group>"; };
+		04045B1928588B23000C48FC /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		04045B1A28588B23000C48FC /* DispatchQueue+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extension.swift"; sourceTree = "<group>"; };
+		04045B1D28588B4A000C48FC /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		04045B1F28588CA0000C48FC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		04045B2128589398000C48FC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				04045ADD28588285000C48FC /* AppDelegate.swift */,
-				04045ADF28588285000C48FC /* ViewController.swift */,
+				04045B232858939C000C48FC /* NetworkManager */,
+				04045B1828588B23000C48FC /* Utilities */,
+				04045B0B285882A2000C48FC /* FetchImage */,
 				04045AE128588285000C48FC /* Main.storyboard */,
 				04045AE428588288000C48FC /* Assets.xcassets */,
 				04045AE628588288000C48FC /* LaunchScreen.storyboard */,
@@ -123,6 +141,68 @@
 				04045AFF28588288000C48FC /* Info.plist */,
 			);
 			path = GDCUITests;
+			sourceTree = "<group>";
+		};
+		04045B0B285882A2000C48FC /* FetchImage */ = {
+			isa = PBXGroup;
+			children = (
+				04045B10285885DF000C48FC /* Model */,
+				04045B0F285885D2000C48FC /* ViewModel */,
+				04045B0C285882D4000C48FC /* View */,
+				04045B152858887D000C48FC /* FetchImageRequestData */,
+			);
+			path = FetchImage;
+			sourceTree = "<group>";
+		};
+		04045B0C285882D4000C48FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04045ADF28588285000C48FC /* FetchImageVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04045B0F285885D2000C48FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04045B112858865B000C48FC /* FetchImageVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04045B10285885DF000C48FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04045B1328588675000C48FC /* FetchImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04045B152858887D000C48FC /* FetchImageRequestData */ = {
+			isa = PBXGroup;
+			children = (
+				04045B16285888C0000C48FC /* FetchImageRequestData.swift */,
+			);
+			path = FetchImageRequestData;
+			sourceTree = "<group>";
+		};
+		04045B1828588B23000C48FC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				04045B1928588B23000C48FC /* Log.swift */,
+				04045B1D28588B4A000C48FC /* Configuration.swift */,
+				04045B1F28588CA0000C48FC /* Constant.swift */,
+				04045B1A28588B23000C48FC /* DispatchQueue+Extension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		04045B232858939C000C48FC /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				04045B2128589398000C48FC /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +336,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04045AE028588285000C48FC /* ViewController.swift in Sources */,
+				04045B122858865B000C48FC /* FetchImageVM.swift in Sources */,
+				04045B1C28588B23000C48FC /* DispatchQueue+Extension.swift in Sources */,
+				04045B2228589398000C48FC /* NetworkManager.swift in Sources */,
+				04045B2028588CA0000C48FC /* Constant.swift in Sources */,
+				04045AE028588285000C48FC /* FetchImageVC.swift in Sources */,
+				04045B1B28588B23000C48FC /* Log.swift in Sources */,
+				04045B1428588675000C48FC /* FetchImageModel.swift in Sources */,
+				04045B17285888C0000C48FC /* FetchImageRequestData.swift in Sources */,
+				04045B1E28588B4A000C48FC /* Configuration.swift in Sources */,
 				04045ADE28588285000C48FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
