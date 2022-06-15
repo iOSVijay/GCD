@@ -12,16 +12,16 @@ protocol buildUrl {
 }
 
 struct FetchImageRequestData {
-    let netwrokManager: NetworkManager
+    var netwrokManager: NetworkManager
     init(networkManager: NetworkManager) {
         self.netwrokManager = networkManager
     }
     
-    func fetchImageFromWeb(completion:@escaping (_ imgaeData: Data) -> Void?)  {
+    mutating func fetchImageFromWeb(sender: AnyObject,completion:@escaping (_ imgaeData: [Data]) -> Void?)  {
         guard let config = getConfig() else {
             return
         }
-         self.netwrokManager.fetchImageApi(config: config, completion: {(data) in
+        self.netwrokManager.fetchImageApi(sender: sender,config: config, completion: {(data) in
             completion(data)
          })
     }

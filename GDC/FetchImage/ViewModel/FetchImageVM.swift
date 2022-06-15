@@ -9,12 +9,12 @@
 import Foundation
 
 struct FetchImageVM {
-    let fetchImageRequestData: FetchImageRequestData
+    var fetchImageRequestData: FetchImageRequestData
     init(fetchImageRequestData: FetchImageRequestData) {
         self.fetchImageRequestData = fetchImageRequestData
     }
-    func fetchImage(comletion:@escaping (_ imageData: Data) -> Void?) {
-          self.fetchImageRequestData.fetchImageFromWeb(completion: {(data) in
+    mutating func fetchImage(sender: AnyObject,comletion:@escaping (_ imageData: [Data]) -> Void?) {
+        self.fetchImageRequestData.fetchImageFromWeb(sender: sender,completion: {(data) in
             comletion(data)
           })
     }

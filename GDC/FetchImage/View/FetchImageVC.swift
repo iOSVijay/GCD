@@ -12,7 +12,7 @@ class FetchImageVC: UIViewController {
 
     @IBOutlet weak var dogImage: UIImageView!
     @IBOutlet weak var countlbl: UILabel!
-    let fetchImageVM = FetchImageVM(fetchImageRequestData: FetchImageRequestData(networkManager: NetworkManager()))
+    var fetchImageVM = FetchImageVM(fetchImageRequestData: FetchImageRequestData(networkManager: NetworkManager()))
     var count: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,13 @@ class FetchImageVC: UIViewController {
 
     // press the button to fetch image
     @IBAction func fetchImage(_ sender: Any) {
-              self.fetchImageVM.fetchImage(comletion: {[weak self] (data) in
+        self.fetchImageVM.fetchImage(sender: self,comletion: {[weak self] (data) in
                 DispatchQueue.main.async {
                     Log.queue(action: "setting image on ui")
-                    self?.dogImage.image = UIImage(data: data)
+                    self?.dogImage.image = UIImage(data: data[0])
                 }
                 
-                  
+                
               })
     }
     // press the button to increase count
@@ -37,5 +37,8 @@ class FetchImageVC: UIViewController {
         self.countlbl.text = String(self.count)
     }
     
+    deinit {
+        print("fetch image VC deallocated")
+    }
 }
 

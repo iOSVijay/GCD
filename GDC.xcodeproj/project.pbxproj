@@ -22,6 +22,10 @@
 		04045B1E28588B4A000C48FC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B1D28588B4A000C48FC /* Configuration.swift */; };
 		04045B2028588CA0000C48FC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B1F28588CA0000C48FC /* Constant.swift */; };
 		04045B2228589398000C48FC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04045B2128589398000C48FC /* NetworkManager.swift */; };
+		040ECE722859EAB2007A6BD7 /* PetsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ECE712859EAB2007A6BD7 /* PetsListVC.swift */; };
+		040ECE742859EACA007A6BD7 /* PetsListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ECE732859EACA007A6BD7 /* PetsListVM.swift */; };
+		040ECE772859EB10007A6BD7 /* PetsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ECE762859EB10007A6BD7 /* PetsListCell.swift */; };
+		040ECE7A2859ECAA007A6BD7 /* PetsListVC+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ECE792859ECAA007A6BD7 /* PetsListVC+Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		04045B1D28588B4A000C48FC /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		04045B1F28588CA0000C48FC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		04045B2128589398000C48FC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		040ECE712859EAB2007A6BD7 /* PetsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsListVC.swift; sourceTree = "<group>"; };
+		040ECE732859EACA007A6BD7 /* PetsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsListVM.swift; sourceTree = "<group>"; };
+		040ECE762859EB10007A6BD7 /* PetsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsListCell.swift; sourceTree = "<group>"; };
+		040ECE792859ECAA007A6BD7 /* PetsListVC+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetsListVC+Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 				04045ADD28588285000C48FC /* AppDelegate.swift */,
 				04045B232858939C000C48FC /* NetworkManager */,
 				04045B1828588B23000C48FC /* Utilities */,
+				040ECE6E2859E6AA007A6BD7 /* PetsList */,
 				04045B0B285882A2000C48FC /* FetchImage */,
 				04045AE128588285000C48FC /* Main.storyboard */,
 				04045AE428588288000C48FC /* Assets.xcassets */,
@@ -203,6 +212,49 @@
 				04045B2128589398000C48FC /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		040ECE6E2859E6AA007A6BD7 /* PetsList */ = {
+			isa = PBXGroup;
+			children = (
+				040ECE702859E6F5007A6BD7 /* ViewModel */,
+				040ECE6F2859E6D2007A6BD7 /* View */,
+			);
+			path = PetsList;
+			sourceTree = "<group>";
+		};
+		040ECE6F2859E6D2007A6BD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				040ECE712859EAB2007A6BD7 /* PetsListVC.swift */,
+				040ECE752859EAE0007A6BD7 /* Cell */,
+				040ECE782859EC6D007A6BD7 /* Extentions */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		040ECE702859E6F5007A6BD7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				040ECE732859EACA007A6BD7 /* PetsListVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		040ECE752859EAE0007A6BD7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				040ECE762859EB10007A6BD7 /* PetsListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		040ECE782859EC6D007A6BD7 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				040ECE792859ECAA007A6BD7 /* PetsListVC+Extention.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,12 +390,16 @@
 			files = (
 				04045B122858865B000C48FC /* FetchImageVM.swift in Sources */,
 				04045B1C28588B23000C48FC /* DispatchQueue+Extension.swift in Sources */,
+				040ECE772859EB10007A6BD7 /* PetsListCell.swift in Sources */,
+				040ECE742859EACA007A6BD7 /* PetsListVM.swift in Sources */,
 				04045B2228589398000C48FC /* NetworkManager.swift in Sources */,
 				04045B2028588CA0000C48FC /* Constant.swift in Sources */,
+				040ECE722859EAB2007A6BD7 /* PetsListVC.swift in Sources */,
 				04045AE028588285000C48FC /* FetchImageVC.swift in Sources */,
 				04045B1B28588B23000C48FC /* Log.swift in Sources */,
 				04045B1428588675000C48FC /* FetchImageModel.swift in Sources */,
 				04045B17285888C0000C48FC /* FetchImageRequestData.swift in Sources */,
+				040ECE7A2859ECAA007A6BD7 /* PetsListVC+Extention.swift in Sources */,
 				04045B1E28588B4A000C48FC /* Configuration.swift in Sources */,
 				04045ADE28588285000C48FC /* AppDelegate.swift in Sources */,
 			);

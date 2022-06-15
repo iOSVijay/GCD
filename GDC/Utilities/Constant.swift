@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct Constant {
+    static let cellIdentifier = "cell"
+}
+
 struct ApiEndpoints {
     static let scheme = "https"
     static let host = "dog.ceo"
