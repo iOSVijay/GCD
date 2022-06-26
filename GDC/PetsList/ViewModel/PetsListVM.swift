@@ -13,10 +13,10 @@ struct PetsListVM {
     init(fetchImageRequestData: FetchImageRequestData) {
         self.fetchImageRequestData = fetchImageRequestData
     }
-    mutating func fetchPetsImage(sender: AnyObject,completion: @escaping (_ imageData: [Data]) -> Void? )  {
+    mutating func fetchPetsImage(sender: AnyObject,completion: @escaping (_ imageData: [Data]?, _ error: Error?) -> Void? )  {
         
-        self.fetchImageRequestData.fetchImageFromWeb(sender: sender, completion: { (data) in
-            completion(data)
+        self.fetchImageRequestData.fetchImageFromWeb(sender: sender, completion: { (data, error) in
+            completion(data, error)
         })
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct NetworkManager {
     // this class is used for network calls
     
-    mutating func fetchImageApi(sender: AnyObject, config: Configuration ,completion: @escaping (_ imageData: [Data]) -> Void? )  {
+    mutating func fetchImageApi(sender: AnyObject, config: Configuration ,completion: @escaping (_ imageData: [Data]?, _ error: Error?) -> Void? )  {
         
         if let _ = sender as? PetsListVC {
             // dispatch queue is used and group dispatch is used to notify the completion
@@ -23,33 +23,58 @@ struct NetworkManager {
         
     }
     
-  private func fetchSingleImage(config: Configuration, completion:@escaping (_ imageData: [Data]) -> Void?)  {
+   
+}
+
+
+extension NetworkManager: NetworkProtocols {
+    
+    func fetchSingleImage(config: Configuration, completion:@escaping (_ imageData: [Data]?, _ error: Error?) -> Void?)  {
         
         Log.location(fileName: #file)
         var imageUrl: URL?
         var dogImgData: Data?
+        var apierror: Error?
+        
         var dog: Dog?
         var imageDataArr: [Data] = [Data]()
         let operationQueue = OperationQueue()
         operationQueue.qualityOfService = .userInteractive
         
-        
         let operationFetchJson = BlockOperation(block: {
             
-            let decoder = JSONDecoder()
             Log.queue(action: "fetching json")
-            guard let imageJSON = try? Data(contentsOf: config.url) else {
-                fatalError("could not get data from json url")
-            }
             
-            guard let thisDog = try? decoder.decode(Dog.self, from: imageJSON) else {
-                fatalError("there must be problem decoding ...")
+            let task = URLSession.shared.dataTask(with: config.url) { (data, response, error) in
+                guard let unwrappedData = data else {
+                    //                    completion(nil, error)
+                    apierror = error
+                    return
+                    
+                }
+                if (error == nil && unwrappedData.count != 0)
+                {
+                    let decoder = JSONDecoder()
+                    do {
+                        let thisDog = try decoder.decode(Dog.self, from: unwrappedData)
+                        dog = thisDog
+                        //                        completion(response.usersList, error)
+                        apierror = error
+                    }
+                    catch let error {
+                        //                        completion(nil, error)
+                        apierror = error
+                        print("fatal error")
+                    }
+                }
+                
             }
-            dog = thisDog
+            task.resume()
+            
         })
         
         let operationFetchUrl = BlockOperation(block: {
-            
+            sleep(5)
             Log.queue(action: "fetching Dog URL")
             guard let dog = dog else {return}
             guard let imageURL = URL(string: dog.imageUrl) else {
@@ -61,7 +86,7 @@ struct NetworkManager {
         
         operationFetchUrl.addDependency(operationFetchJson)
         let operationFetchImage = BlockOperation(block: {
-            
+            sleep(5)
             Log.queue(action: "fetching image data")
             guard let imageUrl = imageUrl else {return}
             guard let imageData = try? Data(contentsOf: imageUrl) else {
@@ -73,13 +98,14 @@ struct NetworkManager {
         
         
         let completionBlock = {
+            sleep(5)
             print("all task done+++++++")
             Log.queue(action: "completion")
             guard let dogImgData = dogImgData else {
                 return
             }
             imageDataArr.append(dogImgData)
-            completion(imageDataArr)
+            completion(imageDataArr, apierror)
         }
         let completionOperation = BlockOperation(block: {
             completionBlock()
@@ -89,7 +115,7 @@ struct NetworkManager {
         
     }
     
- private func fetchPetsImage(config: Configuration,completion: @escaping (_ imageData: [Data]) -> Void? )  {
+    func fetchPetsImage(config: Configuration,completion: @escaping (_ imageData: [Data]?, _ error: Error?) -> Void? )  {
         
         let queue = DispatchQueue.init(label: "downloadPetImage", qos: .userInteractive)
         var imageDataArr = [Data]()
@@ -124,14 +150,11 @@ struct NetworkManager {
             }
         }
         
-        
         dispatchGroup.notify(queue: .main, execute: {
             
             print("all task done+++++++")
             Log.queue(action: "completion")
-            completion(imageDataArr)
+            completion(imageDataArr, nil)
         })
-        
-        
     }
 }

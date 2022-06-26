@@ -21,8 +21,9 @@ class PetsListVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func loadPets(_ sender: Any) {
-        petsListVM.fetchPetsImage(sender: self,completion: {[weak self] (data) in
-            self?.imageDataArr = data
+        petsListVM.fetchPetsImage(sender: self,completion: {[weak self] (data, error) in
+            guard let imageData = data else { return nil }
+            self?.imageDataArr = imageData
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
                 self?.activityIndicator.stopAnimating()

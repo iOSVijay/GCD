@@ -13,9 +13,14 @@ struct FetchImageVM {
     init(fetchImageRequestData: FetchImageRequestData) {
         self.fetchImageRequestData = fetchImageRequestData
     }
-    mutating func fetchImage(sender: AnyObject,comletion:@escaping (_ imageData: [Data]) -> Void?) {
-        self.fetchImageRequestData.fetchImageFromWeb(sender: sender,completion: {(data) in
-            comletion(data)
+    mutating func fetchImage(sender: AnyObject,comletion:@escaping (_ imageData: [Data]?, _ error: Error?) -> Void?) {
+        self.fetchImageRequestData.fetchImageFromWeb(sender: sender,completion: {(data, error) in
+            comletion(data, error)
           })
+    }
+    
+    // for concept clearance
+    func optinalWrapping(str: String?) -> String{
+        return str ?? "unknown"
     }
 }

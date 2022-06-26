@@ -12,6 +12,8 @@ class FetchImageVC: UIViewController {
 
     @IBOutlet weak var dogImage: UIImageView!
     @IBOutlet weak var countlbl: UILabel!
+    @IBOutlet weak var increaseBtn: UIButton!
+    
     var fetchImageVM = FetchImageVM(fetchImageRequestData: FetchImageRequestData(networkManager: NetworkManager()))
     var count: Int = 0
     override func viewDidLoad() {
@@ -21,12 +23,12 @@ class FetchImageVC: UIViewController {
 
     // press the button to fetch image
     @IBAction func fetchImage(_ sender: Any) {
-        self.fetchImageVM.fetchImage(sender: self,comletion: {[weak self] (data) in
+        self.fetchImageVM.fetchImage(sender: self,comletion: {[weak self] (data, error) in
                 DispatchQueue.main.async {
                     Log.queue(action: "setting image on ui")
-                    self?.dogImage.image = UIImage(data: data[0])
+                    guard let imageData = data else {return}
+                    self?.dogImage.image = UIImage(data: imageData[0])
                 }
-                
                 
               })
     }
@@ -35,6 +37,9 @@ class FetchImageVC: UIViewController {
         
         self.count = self.count + 1
         self.countlbl.text = String(self.count)
+        
+        let name: String? = nil
+        print("optional value---- \(self.fetchImageVM.optinalWrapping(str: name))")
     }
     
     deinit {

@@ -17,12 +17,12 @@ struct FetchImageRequestData {
         self.netwrokManager = networkManager
     }
     
-    mutating func fetchImageFromWeb(sender: AnyObject,completion:@escaping (_ imgaeData: [Data]) -> Void?)  {
+    mutating func fetchImageFromWeb(sender: AnyObject,completion:@escaping (_ imgaeData: [Data]?, _ error: Error?) -> Void?)  {
         guard let config = getConfig() else {
             return
         }
-        self.netwrokManager.fetchImageApi(sender: sender,config: config, completion: {(data) in
-            completion(data)
+        self.netwrokManager.fetchImageApi(sender: sender,config: config, completion: {(data, error) in
+            completion(data, error)
          })
     }
     

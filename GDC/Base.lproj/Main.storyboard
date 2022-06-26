@@ -32,7 +32,7 @@
                                     <action selector="fetchImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OhV-TC-Vgo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXM-Pp-dU9">
+                            <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXM-Pp-dU9">
                                 <rect key="frame" x="136.5" y="524" width="102" height="30"/>
                                 <state key="normal" title="Increase count"/>
                                 <connections>
@@ -72,6 +72,7 @@
                     <connections>
                         <outlet property="countlbl" destination="ceh-WL-gaa" id="Sza-Ia-6sS"/>
                         <outlet property="dogImage" destination="hqg-Az-j4C" id="EYi-hg-5Nb"/>
+                        <outlet property="increaseBtn" destination="QXM-Pp-dU9" id="Zry-pi-BNl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
